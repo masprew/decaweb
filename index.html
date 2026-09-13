@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Deca-Tech Bot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-app">
+        
+        <!-- Header -->
+        <div class="chat-header">
+            <div class="header-left">
+                <div class="bot-avatar">
+                    <img id="botAvatar" src="https://via.placeholder.com/40/3b82f6/ffffff?text=DT" alt="Bot">
+                    <span class="online-dot"></span>
+                </div>
+                <div class="header-info">
+                    <h2 id="botName">Deca-Tech</h2>
+                    <p id="botStatus">online</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="menu-btn" onclick="toggleMenu()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="5" r="1.5"></circle>
+                        <circle cx="12" cy="12" r="1.5"></circle>
+                        <circle cx="12" cy="19" r="1.5"></circle>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Dropdown -->
+        <div class="menu-dropdown" id="menuDropdown">
+            <button onclick="clearChatConfirm()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                </svg>
+                Clear Chat
+            </button>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="chat-messages" id="chatMessages">
+            <div class="welcome-screen" id="welcomeScreen">
+                <div class="welcome-logo">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="welcome-title">Deca-Tech</h3>
+                <p class="welcome-subtitle">Bot aktivasi premium otomatis</p>
+                <div class="welcome-info">
+                    <div class="welcome-info-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Aktivasi premium tanpa ribet</span>
+                    </div>
+                    <div class="welcome-info-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Proses cepat & otomatis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Ketik pesan..." autocomplete="off">
+            <button class="send-btn" onclick="sendMessage()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                </svg>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Modal Konfirmasi Clear -->
+    <div class="modal-overlay" id="clearModal">
+        <div class="modal">
+            <div class="modal-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                </svg>
+            </div>
+            <h3>Hapus Semua Chat?</h3>
+            <p>Semua riwayat chat akan dihapus permanen.</p>
+            <div class="modal-buttons">
+                <button class="modal-btn cancel" onclick="closeClearModal()">Batal</button>
+                <button class="modal-btn danger" onclick="clearChat()">Hapus</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
